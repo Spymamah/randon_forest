@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import numpy as np
+import joblib
 
 # Load Dataset
 dataset = pd.read_excel("C:/Users/user/Desktop/machine learning/tuberculosis dataset.xlsx")
@@ -58,6 +59,14 @@ print("Y Shape:", y.shape, "| Y_train:", y_train.shape, "| Y_test:", y_test.shap
 # Train Model
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(x_train, y_train)
+
+
+
+
+# Save the trained model
+joblib.dump(model, "random_forest_tb.pkl")
+
+print("Model saved successfully!")
 
 # Predictions
 predictions = model.predict(x_test)
