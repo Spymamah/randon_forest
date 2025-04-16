@@ -16,6 +16,10 @@ print("Missing values before handling:\n", dataset.isnull().sum())
 #distribution of the three classes
 print(dataset['SP'].value_counts())
 
+# Convert to binary labels
+# dataset['SP_binary'] = dataset['SP'].apply(lambda x: 1 if x in [1, 2] else 0)
+
+
 # Plot class distribution
 plt.figure(figsize=(6,4))
 sns.countplot(x=dataset['SP'], palette="viridis")  # 'viridis' gives a nice color gradient
